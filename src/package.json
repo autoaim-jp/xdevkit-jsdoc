@@ -1,7 +1,7 @@
 {
 	"scripts": {
-		"generate": "rm -rf ./doc/jsdoc/build/ && yarn jsdoc -c setting/jsdoc.config.json",
-		"generate-publish": "gh-pages -d doc/jsdoc/build -m \"update: --skip-ci\""
+		"generate": "rm -rf ./doc/jsdoc/build/* && yarn jsdoc -c setting/jsdoc.config.json",
+		"generate-publish": "generate && gh-pages -d doc/jsdoc/build -m \"update: --skip-ci\""
 	},
 	"type": "module",
 	"devDependencies": {

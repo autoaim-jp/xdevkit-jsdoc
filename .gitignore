@@ -1,3 +1,6 @@
+doc/jsdoc/build/
+
 node_modules/
 .env
+
 
