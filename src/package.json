@@ -1,0 +1,11 @@
+{
+	"scripts": {
+		"generate": "rm -rf ./doc/jsdoc/build/ && yarn jsdoc -c setting/jsdoc.config.json",
+		"generate-publish": "gh-pages -d doc/jsdoc/build -m \"update: --skip-ci\""
+	},
+	"type": "module",
+	"devDependencies": {
+		"jsdoc": "^4.0.0",
+		"gh-pages": "^6.0.0"
+	}
+}
