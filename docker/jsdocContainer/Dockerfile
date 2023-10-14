@@ -1,8 +1,15 @@
 FROM node:20-slim
 
-WORKDIR /app
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+    git \
+ && apt-get -y clean \
+ && rm -rf /var/lib/apt/lists/*
 
-COPY ./src/package.json /app/
+WORKDIR /app/src
+COPY ./src/package.json /app/src/
 
 RUN yarn install
+
+WORKDIR /app/
 

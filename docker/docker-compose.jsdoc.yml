@@ -1,16 +1,16 @@
 version: '3'
 
 services:
-  eslit_container:
+  jsdoc_container:
     container_name: jsdoc-container
     build:
       context: ../
       dockerfile: ./docker/jsdocContainer/Dockerfile
     tty: true
     volumes:
-      - ../src/setting:/app/setting:ro
-      - ../doc/jsdoc/build:/app/doc/jsdoc/build
-      - ../service:/app/service
-    command: sh -c "yarn run ${JSDOC_COMMAND}"
-
+      - ../../.git/modules/standalone/xdevkit-jsdoc:/app/.git
+      - ../src/setting:/app/src/setting
+      - ../service:/app/src/service
+      - ../build:/app/src/build
+    command: sh -c "cd src && yarn run ${JSDOC_COMMAND}"
 

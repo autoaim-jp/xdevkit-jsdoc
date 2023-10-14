@@ -15,7 +15,7 @@
   "plugins": ["plugins/markdown"],
   "opts": {
     "recurse": true,
-    "destination": "./doc/jsdoc/build/"
+    "destination": "./build/"
   }
 }
 
