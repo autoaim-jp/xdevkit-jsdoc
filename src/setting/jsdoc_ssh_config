@@ -1,0 +1,7 @@
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile /app/src/setting/id_rsa_deploy_key_xdevkit_jsdoc
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+

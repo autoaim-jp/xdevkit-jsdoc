@@ -12,5 +12,5 @@ services:
       - ../src/setting:/app/src/setting
       - ../service:/app/src/service
       - ../build:/app/src/build
-    command: sh -c "git remote add origin git@github.com:/autoaim-jp/xdevkit-jsdoc && cd src && yarn run ${JSDOC_COMMAND}"
+    command: sh -c "git config --global user.name autoaim_jp && git config --global user.email git@autoaim.jp && cd src && mkdir -p /root/.ssh/ && cp ./setting/jsdoc_ssh_config /root/.ssh/config && yarn run ${JSDOC_COMMAND}"
 
