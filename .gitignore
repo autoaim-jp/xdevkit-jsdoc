@@ -1,6 +1,7 @@
 build/
 
-id_rsa_deploy_key_xdevkit_jsdoc
+secret/
+id_rsa_deploy_key
 
 node_modules/
 .env
