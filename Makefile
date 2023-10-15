@@ -26,15 +26,15 @@ init:
 	cat ./secret/id_rsa_deploy_key.pub
 
 docker-compose-up-jsdoc-publish:
-	GIT_USER_NAME=${GIT_USER_NAME} \
-	GIT_USER_EMAIL=${GIT_USER_EMAIL} \
-	GIT_REPOSITORY_URL=${GIT_REPOSITORY_URL} \
+	GIT_USER_NAME="${GIT_USER_NAME}" \
+	GIT_USER_EMAIL="${GIT_USER_EMAIL}" \
+	GIT_REPOSITORY_URL="${GIT_REPOSITORY_URL}" \
 	JSDOC_COMMAND="generate-publish" \
 	docker compose -p docker-jsdoc -f ./docker/docker-compose.jsdoc.yml up --abort-on-container-exit
 docker-compose-up-jsdoc:
-	GIT_USER_NAME=${GIT_USER_NAME} \
-	GIT_USER_EMAIL=${GIT_USER_EMAIL} \
-	GIT_REPOSITORY_URL=${GIT_REPOSITORY_URL} \
+	GIT_USER_NAME="${GIT_USER_NAME}" \
+	GIT_USER_EMAIL="${GIT_USER_EMAIL}" \
+	GIT_REPOSITORY_URL="${GIT_REPOSITORY_URL}" \
 	JSDOC_COMMAND="generate" \
 	docker compose -p docker-jsdoc -f ./docker/docker-compose.jsdoc.yml up --abort-on-container-exit
 
