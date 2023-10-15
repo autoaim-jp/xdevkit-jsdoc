@@ -20,10 +20,10 @@ help:
 	@echo "Usage: make help"
 
 init:
-	mkdir -p $(PWD)/src/setting/secret/
-	ssh-keygen -t rsa -b 4096 -f $(PWD)/src/setting/secret/id_rsa_deploy_key -N ""
-	echo "info: register this as a deploy key at github"
-	cat src/setting/secret/id_rsa_deploy_key.pub
+	mkdir -p ./secret/
+	ssh-keygen -t rsa -b 4096 -f ./secret/id_rsa_deploy_key -N ""
+	echo "info: register this as a deploy key with write access at github"
+	cat ./secret/id_rsa_deploy_key.pub
 
 docker-compose-up-jsdoc-publish:
 	GIT_USER_NAME=${GIT_USER_NAME} GIT_USER_EMAIL=${GIT_USER_EMAIL} JSDOC_COMMAND="generate-publish" docker compose -p docker-jsdoc -f ./docker/docker-compose.jsdoc.yml up --abort-on-container-exit

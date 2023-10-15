@@ -1,7 +1,7 @@
 Host github.com
   HostName github.com
   User git
-  IdentityFile /app/src/setting/secret/id_rsa_deploy_key
+  IdentityFile /app/secret/id_rsa_deploy_key
   StrictHostKeyChecking no
   UserKnownHostsFile=/dev/null
 
