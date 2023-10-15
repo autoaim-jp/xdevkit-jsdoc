@@ -7,10 +7,9 @@ services:
       dockerfile: ./docker/jsdocContainer/Dockerfile
     tty: true
     volumes:
-      - ../.git/:/app/.git
       - ../src/setting:/app/src/setting
+      - ../build:/app/src/build
       - ../secret:/app/secret
       - ../service:/app/src/service
-      - ../build:/app/src/build
-    command: sh -c "git config --global user.name ${GIT_USER_NAME} && git config --global user.email ${GIT_USER_EMAIL} && cd src && mkdir -p /root/.ssh/ && cp ./setting/jsdoc_ssh_config /root/.ssh/config && yarn run ${JSDOC_COMMAND}"
+    command: sh -c "git config --global user.name ${GIT_USER_NAME} && git config --global user.email ${GIT_USER_EMAIL} && git config --global remote.origin.url ${GIT_REPOSITORY_URL} && cd src && mkdir -p /root/.ssh/ && cp ./setting/jsdoc_ssh_config /root/.ssh/config && yarn run ${JSDOC_COMMAND}"
 

@@ -1,7 +1,7 @@
 {
 	"scripts": {
 		"generate": "rm -rf ./build/* && yarn jsdoc -c setting/jsdoc.config.json",
-		"generate-publish": "yarn run generate && gh-pages -d build -r 'git@github.com:/autoaim-jp/xdevkit-jsdoc' -m \"update: --skip-ci\""
+		"generate-publish": "yarn run generate && gh-pages -d build -m \"update: --skip-ci\""
 	},
 	"type": "module",
 	"devDependencies": {
