@@ -1,3 +1,4 @@
+include setting.conf
 SHELL=/bin/bash
 PHONY=default help reset check jsdoc-rebuild jsdoc-build jsdoc-up jsdoc-up-publish jsdoc-down
 
@@ -18,9 +19,9 @@ help:
 	@echo "Usage: make help"
 
 docker-compose-up-jsdoc-publish:
-	JSDOC_COMMAND="generate-publish" docker compose -p docker-jsdoc -f ./docker/docker-compose.jsdoc.yml up --abort-on-container-exit
+	GIT_USER_NAME=${GIT_USER_NAME} GIT_USER_EMAIL=${GIT_USER_EMAIL} JSDOC_COMMAND="generate-publish" docker compose -p docker-jsdoc -f ./docker/docker-compose.jsdoc.yml up --abort-on-container-exit
 docker-compose-up-jsdoc:
-	JSDOC_COMMAND="generate" docker compose -p docker-jsdoc -f ./docker/docker-compose.jsdoc.yml up --abort-on-container-exit
+	GIT_USER_NAME=${GIT_USER_NAME} GIT_USER_EMAIL=${GIT_USER_EMAIL} JSDOC_COMMAND="generate" docker compose -p docker-jsdoc -f ./docker/docker-compose.jsdoc.yml up --abort-on-container-exit
 
 docker-compose-build-jsdoc:
 	docker compose -p docker-jsdoc -f ./docker/docker-compose.jsdoc.yml build
