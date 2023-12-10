@@ -4,6 +4,9 @@ PHONY=default help init jsdoc-rebuild jsdoc-build jsdoc-up jsdoc-up-publish jsdo
 
 .PHONY: $(PHONY)
 
+SECRET_PATH?=../secret
+SERVICE_PATH?=../service
+
 default: help
 
 jsdoc-up: docker-compose-up-jsdoc
@@ -26,15 +29,19 @@ init:
 	cat ./secret/id_rsa_deploy_key.pub
 
 docker-compose-up-jsdoc-publish:
-	GIT_USER_NAME=${GIT_USER_NAME} \
-	GIT_USER_EMAIL=${GIT_USER_EMAIL} \
-	GIT_REPOSITORY_URL=${GIT_REPOSITORY_URL} \
+	SECRET_PATH=${SECRET_PATH} \
+	SERVICE_PATH=${SERVICE_PATH} \
+	GIT_USER_NAME="${GIT_USER_NAME}" \
+	GIT_USER_EMAIL="${GIT_USER_EMAIL}" \
+	GIT_REPOSITORY_URL="${GIT_REPOSITORY_URL}" \
 	JSDOC_COMMAND="generate-publish" \
 	docker compose -p docker-jsdoc -f ./docker/docker-compose.jsdoc.yml up --abort-on-container-exit
 docker-compose-up-jsdoc:
-	GIT_USER_NAME=${GIT_USER_NAME} \
-	GIT_USER_EMAIL=${GIT_USER_EMAIL} \
-	GIT_REPOSITORY_URL=${GIT_REPOSITORY_URL} \
+	SECRET_PATH=${SECRET_PATH} \
+	SERVICE_PATH=${SERVICE_PATH} \
+	GIT_USER_NAME="${GIT_USER_NAME}" \
+	GIT_USER_EMAIL="${GIT_USER_EMAIL}" \
+	GIT_REPOSITORY_URL="${GIT_REPOSITORY_URL}" \
 	JSDOC_COMMAND="generate" \
 	docker compose -p docker-jsdoc -f ./docker/docker-compose.jsdoc.yml up --abort-on-container-exit
 
